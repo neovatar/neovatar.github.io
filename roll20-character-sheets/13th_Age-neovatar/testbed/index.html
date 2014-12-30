@@ -41,9 +41,9 @@
 		</div>
 	</div>
   <div style="clear:both"></div>
-  <input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" title="Core" checked="checked"/>
+  <input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" title="Core"/>
   <span class="sheet-tab sheet-tab1">PC</span>
-  <input type="radio" name="attr_tab" class="sheet-tab sheet-tab10" value="10" title="NPC"/>
+  <input type="radio" name="attr_tab" class="sheet-tab sheet-tab10" value="10" title="NPC"  checked="checked"/>
   <span class="sheet-tab sheet-tab10">NPC</span>
   <div class="sheet-section sheet-section-core">
   	<div class="sheet-2colrow">
@@ -683,7 +683,156 @@
       </div>
     </div>
   </div>
+  <!-- npc section -->
   <div class="sheet-section sheet-section-npc">
+    <div class="sheet-2colrow">
+      <div style="width:60%;" class="sheet-col">
+        <!-- npc info -->
+        <div class="sheet-table sheet-sect">
+          <span class="sheet-table-name sheet-round sheet-caps">General Information</span>
+            <div class="sheet-table-row">
+              <span style="width:40%" class="sheet-table-data sheet-left">
+                <input style="width:100%;" title="@{character_name}" name="attr_character_name" placeholder="Name" type="text" />
+              </span>
+              <span style="width:3.5em" class="sheet-table-data sheet-center">
+                <input style="width:100%;" title="@{level}" name="attr_level" value="@{level}" type="number" />
+              </span>
+              <span class="sheet-table-data sheet-left">
+                <input style="width:100%;" title="@{size}" name="attr_size" placeholder="Size" type="text" />
+              </span>
+              <span class="sheet-table-data sheet-left">
+                <input style="width:100%;" title="@{class}" name="attr_class" placeholder="Class" type="text" />
+              </span>
+              <span class="sheet-table-data sheet-left">
+                <input style="width:100%;" title="@{race}" name="attr_race" placeholder="Type" type="text" />
+              </span>
+            </div>
+            <div class="sheet-table-row">
+              <span class="sheet-table-data sheet-left sheet-table-smallsub">Name</span>
+              <span class="sheet-table-data sheet-left sheet-table-smallsub">Level</span>
+              <span class="sheet-table-data sheet-left sheet-table-smallsub">Size</span>
+              <span class="sheet-table-data sheet-left sheet-table-smallsub">Class</span>
+              <span class="sheet-table-data sheet-left sheet-table-smallsub">Type</span>
+            </div>
+          </div>
+          <br>
+          <!-- npc desc -->
+          <div class="sheet-table sheet-sect">
+            <span class="sheet-table-name sheet-round sheet-caps">Description</span>
+            <div class="sheet-table-row">
+              Show&nbsp;Description&nbsp;<input type="checkbox" class="sheet-desc-show" title="@{npc_description-show}" name="attr_npc_description-show" value="1" checked/>
+              <textarea title="@{npc_description}" class="sheet-desc" name="attr_npc_description" placeholder = "Description"></textarea>
+            </div>
+          </div>
+        </div>
+        <div style="width:35%" class="sheet-col">
+        <!-- npc saves -->
+          <div class="sheet-table sheet-sect">
+            <span class="sheet-table-name sheet-round sheet-caps">Defenses & Saves</span>
+            <div class="sheet-table-row">
+              <span class="sheet-table-header sheet-table-padding">AC</span>
+              <span class="sheet-table-data sheet-left"><input style="width:100%;" class="sheet-total sheet-center" title="@{AC-base}" type="number" name="attr_AC" value="10"></span>
+              <span class="sheet-table-header sheet-table-padding">PD</span>
+              <span class="sheet-table-data sheet-left"><input style="width:100%;" class="sheet-total sheet-center" title="@{PD-base}" type="number" name="attr_PD" value="0"></span>
+              <span class="sheet-table-header sheet-table-padding">MD</span>
+              <span class="sheet-table-data sheet-left"><input style="width:100%;" class="sheet-total sheet-center" title="@{MD-base}" type="number" name="attr_PD" value="0"></span>
+            </div>
+          </div>
+          <br>
+          <!-- npc vulnerabilities -->
+          <div class="sheet-table sheet-sect">
+            <span class="sheet-table-name sheet-round sheet-caps">Vulnerabilities</span>
+            <div class="sheet-table-row">
+              <span class="sheet-table-data sheet-left"><input style="width:100%;" class="sheet-total sheet-left" title="@{npc_vulnerabilities}" placeholder="Vulnerabilities" type="text" name="attr_npc_vulnerabilities"></span>
+            </div>
+          </div>
+          <br>
+          <!-- npc hit points -->
+          <div class="sheet-table sheet-sect">
+            <span class="sheet-table-name sheet-round sheet-caps">Hit points</span>
+          <div class="sheet-table-row">
+            <span class="sheet-table-header sheet-table-padding">HP</span>
+            <span class="sheet-table-data sheet-left"><input style="width:100%;" class="sheet-total sheet-center" title="@{HP}" type="number" name="attr_HP" value="10"></span>
+            <span class="sheet-table-data sheet-left"><input style="width:100%;" class="sheet-total sheet-center" title="@{HP-temp}" type="number" name="attr_HP-temp" value="0"></span>
+            <span class="sheet-table-data sheet-left"><input style="width:100%;" class="sheet-total sheet-center" title="@{HP-max}" type="number" name="attr_HP-max" value="10"></span>
+          </div>
+           <div class="sheet-table-row">
+            <span class="sheet-table-data sheet-center sheet-table-smallsub"></span>
+            <span class="sheet-table-data sheet-center sheet-table-smallsub">Current</span>
+            <span class="sheet-table-data sheet-center sheet-table-smallsub">Temporary</span>
+            <span class="sheet-table-data sheet-center sheet-table-smallsub">Max</span>
+          </div>
+        </div>
+        <br>
+        <!-- npc initiative -->
+        <div class="sheet-table sheet-sect">
+          <div class="sheet-table">
+            <span class="sheet-table-name sheet-round sheet-caps sheet-center">Iniative</span>
+            <div class="sheet-table-row">
+              <span class="sheet-table-header sheet-left sheet-table-padding">Initiative</span>
+              <span class="sheet-table-data sheet-center">
+                <input style="width:3.5em;" class="sheet-total sheet-center" title="@{initiative}" type="number" name="attr_initiative" value="0">
+              </span>
+              <span class="sheet-table-data sheet-right">
+                <button title="@{INI-check}" type="roll" value="/roll 1d20+[[@{DEX-mod}+@{level}]] &{tracker}" name="roll_INI-check">Roll Initiative!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sheet-2colrow">
+      <div style="width:60%;" class="sheet-col">
+        <div class="sheet-table sheet-sect">
+          <span class="sheet-table-name sheet-round sheet-caps sheet-center">NPC Attacks & Powers</span>
+        </div>
+        <fieldset class="repeating_power">
+          <div class="sheet-table sheet-sect">
+            <div class="sheet-table-row">
+              <span class="sheet-table-data sheet-center">
+                <input class="sheet-power-header" title="@{repeating_power_X_name}" name="attr_name" placeholder="Name" type="text" />
+              </span>
+              <span class="sheet-table-data sheet-center">
+                <input class="sheet-power-header" title="@{repeating_power_X_type}" name="attr_type" placeholder="Type" type="text" />
+              </span>
+            </div>
+          </div>
+          <div class="sheet-table sheet-sect">
+            <div class="sheet-table-row">
+              <span class="sheet-table-data sheet-left">
+                <input style="width:10em" title="@{repeating_power_X_usage}" name="attr_usage" placeholder="Usage" type="text" />
+              </span>
+              <span class="sheet-table-data sheet-left sheet-table-smallsub">            
+                <input title="@{daily-1}" type="checkbox" name="attr_daily-1"/>
+                <input title="@{daily-2}" type="checkbox" name="attr_daily-2"/>
+                <input title="@{daily-3}" type="checkbox" name="attr_daily-3"/>
+                <input title="@{daily-4}" type="checkbox" name="attr_daily-4"/>
+                <input title="@{daily-5}" type="checkbox" name="attr_daily-5"/>
+                <br>Battle
+              </span>
+              <span class="sheet-table-data sheet-left sheet-table-smallsub">
+                <input title="@{battle-1}" type="checkbox" name="attr_battle-1"/>
+                <input title="@{battle-2}" type="checkbox" name="attr_battle-2"/>
+                <input title="@{battle-3}" type="checkbox" name="attr_battle-3"/>
+                <input title="@{battle-4}" type="checkbox" name="attr_battle-4"/>
+                <input title="@{battle-5}" type="checkbox" name="attr_battle-5"/>
+                <br>Daily
+              </span>
+              <span class="sheet-table-data sheet-right">
+                <button type="roll" value="@{macro-text}"></button>
+              </span>
+            </div>
+          </div>
+          Show&nbsp;Description&nbsp;<input type="checkbox" class="sheet-desc-show" title="@{repeating_power_X_description-show}" name="attr_description-show" value="1"/>
+          <textarea title="@{repeating_power_X_desc}" class="sheet-desc" name="attr_description" placeholder = "Description"></textarea>
+          Show&nbsp;Macro&nbsp;<input type="checkbox" class="sheet-macro-text-show" title="@{repeating_power_X_macro-text-show}" name="attr_macro-text-show" value="1"/>
+          <textarea title="@{repeating_power_X_macro-text}" class="sheet-macro-text" name="attr_macro-text" placeholder = "Macro">/w gm @{character_name} uses @{name}</textarea>
+          <hr class="sheet-hr-fancy">
+        </fieldset>
+      </div>
+      <div class="sheet-col">
+      </div>
+    </div>
   </div>
 </div>
                 <!--- END Character Sheet HTML --> 
